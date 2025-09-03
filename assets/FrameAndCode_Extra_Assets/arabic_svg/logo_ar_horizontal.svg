@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="500" viewBox="0 0 1600 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="500" fill="transparent"/>
+  <!-- Icon on the left -->
+  <g transform="translate(40, -10) scale(0.95)">
+    <!-- Embed icon variant 2 content (converted to inline paths via reuse of earlier construction as SVG shapes) -->
+    <rect x="56" y="56" width="400" height="400" rx="48" ry="48"
+          stroke="#1E3A8A" stroke-width="22" fill="none"/>
+    <polygon points="190,206 190,306 260,256" fill="#FF6B57"/>
+    <g stroke="#1E3A8A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <polyline points="320,200 275,256 320,312"/>
+      <polyline points="392,200 437,256 392,312"/>
+    </g>
+  </g>
+  <!-- Arabic Wordmark -->
+  <g font-family="Cairo, 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif" text-anchor="start">
+    <text x="600" y="250" font-size="128" font-weight="800" fill="#0B2545">إطار وكود</text>
+    <text x="600" y="300" font-size="32" font-weight="600" fill="#1E3A8A">حلول إبداعية وبرمجية في مكان واحد</text>
+  </g>
+</svg>

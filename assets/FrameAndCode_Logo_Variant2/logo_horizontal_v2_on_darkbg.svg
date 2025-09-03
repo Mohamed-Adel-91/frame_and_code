@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1500" height="420" viewBox="0 0 1500 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1500" height="420" fill="#0B1220"/>
+  <g transform="translate(20, -34) scale(0.95)">
+    
+  <rect width="512" height="512" fill="transparent"/>
+  <!-- Rounded frame -->
+  <rect x="56" y="56" width="400" height="400" rx="48" ry="48"
+        stroke="#F7F8FA" stroke-width="22" fill="none"/>
+  <!-- Play triangle (media) -->
+  <polygon points="190,206 190,306 260,256"
+           fill="#FF6B57"/>
+  <!-- Code chevrons (dev) -->
+  <g stroke="#F7F8FA" stroke-width="11.0" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- < -->
+    <polyline points="320,200 275,256 320,312"/>
+    <!-- > -->
+    <polyline points="392,200 437,256 392,312"/>
+  </g>
+
+  </g>
+  <g font-family="Inter, Poppins, Arial, Helvetica, sans-serif">
+    <text x="600" y="230" font-size="132" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">
+      Frame<tspan fill="#FF6B57">&amp;</tspan>Code
+    </text>
+    <text x="600" y="284" font-size="30" font-weight="600" fill="#F7F8FA" letter-spacing="2.4">
+      Creative Media · Reliable Code
+    </text>
+  </g>
+</svg>

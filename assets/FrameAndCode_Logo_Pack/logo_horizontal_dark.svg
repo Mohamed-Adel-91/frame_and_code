@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="400" viewBox="0 0 1400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="400" fill="transparent"/>
+  <g transform="translate(20, -56) scale(0.9)">
+    
+  <rect width="512" height="512" fill="transparent"/>
+  <!-- Frame corners -->
+  <g stroke="#00B8C8" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top-left L -->
+    <path d="M64 168 V88 H168"/>
+    <!-- Top-right L -->
+    <path d="M344 88 H448 V192"/>
+    <!-- Bottom-right L -->
+    <path d="M448 344 V448 H344"/>
+    <!-- Bottom-left L -->
+    <path d="M168 448 H64 V344"/>
+  </g>
+  <!-- Code symbol: </> -->
+  <g fill="#0E1116">
+    <!-- left angle < -->
+    <polygon points="178,256 246,196 246,224 212,256 246,288 246,316"/>
+    <!-- right angle > -->
+    <polygon points="334,256 266,316 266,288 300,256 266,224 266,196"/>
+    <!-- slash / -->
+    <rect x="252" y="188" width="12" height="136" transform="rotate(20 258 256)" rx="6"/>
+  </g>
+
+  </g>
+  <!-- Wordmark -->
+  <g font-family="Inter, Poppins, Arial, Helvetica, sans-serif">
+    <text x="560" y="236" font-size="128" font-weight="700" fill="#0E1116" letter-spacing="0.5">
+      Frame<tspan fill="#00B8C8">&amp;</tspan>Code
+    </text>
+    <text x="560" y="286" font-size="28" font-weight="500" fill="#00B8C8" letter-spacing="2.5">
+      Creative Media · Reliable Code
+    </text>
+  </g>
+</svg>

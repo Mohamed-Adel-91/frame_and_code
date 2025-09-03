@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="820" height="900" viewBox="0 0 820 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="820" height="900" fill="transparent"/>
+  <g transform="translate(150, 40) scale(1.0)">
+    <rect x="56" y="56" width="400" height="400" rx="48" ry="48"
+          stroke="#1E3A8A" stroke-width="22" fill="none"/>
+    <polygon points="190,206 190,306 260,256" fill="#FF6B57"/>
+    <g stroke="#1E3A8A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <polyline points="320,200 275,256 320,312"/>
+      <polyline points="392,200 437,256 392,312"/>
+    </g>
+  </g>
+  <g font-family="Cairo, 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif" text-anchor="middle">
+    <text x="410" y="700" font-size="130" font-weight="850" fill="#0B2545">إطار وكود</text>
+    <text x="410" y="750" font-size="30" font-weight="600" fill="#1E3A8A">ميديا ذكية · برمجة موثوقة</text>
+  </g>
+</svg>

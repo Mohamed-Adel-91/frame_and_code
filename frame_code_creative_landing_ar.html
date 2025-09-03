@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Frame&Code — إطار وكود</title>
+    <meta name="description" content="Frame&Code — إنتاج فيديو وفوتوغرافيا وموشن جرافيك + تصميم وتطوير مواقع وتطبيقات ويب/موبايل."/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { cairo: ["Cairo", "system-ui", "sans-serif"] },
+            colors: {
+              brand: { primary: "#1E3A8A", accent: "#FF6B57", navy: "#0B2545", light: "#F7F8FA" }
+            },
+            boxShadow: {
+              soft: "0 10px 30px rgba(0,0,0,0.12)", glow: "0 0 0 6px rgba(30,58,138,0.12)"
+            },
+            keyframes: {
+              float: {"0%,100%": {transform: "translateY(0)"}, "50%": {transform: "translateY(-12px)"}},
+              reveal: {"0%": {opacity:0, transform:"translateY(24px)"}, "100%": {opacity:1, transform:"translateY(0)"}}
+            },
+            animation: { float: "float 6s ease-in-out infinite", reveal: "reveal .8s ease forwards" }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root{--bg: radial-gradient(1200px 600px at 80% -20%, rgba(30,58,138,.14), transparent),
+                     radial-gradient(1000px 500px at 0% 0%, rgba(255,107,87,.10), transparent),
+                     linear-gradient(180deg, #0B1220 0%, #0B2545 100%);} 
+      .bg-hero{background:var(--bg)} .grain:before{content:"";position:absolute;inset:0;opacity:.25;mix-blend-mode:overlay;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.06"/></feComponentTransfer></filter><rect width="100%" height="100%" filter="url(%23n)"/></svg>');pointer-events:none}
+      .reveal{opacity:0;transform:translateY(24px)} .reveal.show{animation:reveal .8s ease forwards}
+    </style>
+  </head>
+  <body class="bg-[#0B1220] text-white selection:bg-brand-accent/40 selection:text-white font-cairo">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 backdrop-blur border-b border-white/10 bg-black/30">
+      <nav class="max-w-7xl mx-auto px-4 lg:px-6 flex items-center justify-between h-16">
+        <a href="#" class="flex items-center gap-3">
+          <!-- Logo mark -->
+          <svg width="36" height="36" viewBox="0 0 512 512" class="shrink-0">
+            <rect x="56" y="56" width="400" height="400" rx="48" ry="48" stroke="#1E3A8A" stroke-width="22" fill="none"/>
+            <polygon points="190,206 190,306 260,256" fill="#FF6B57"/>
+            <g stroke="#1E3A8A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <polyline points="320,200 275,256 320,312"/>
+              <polyline points="392,200 437,256 392,312"/>
+            </g>
+          </svg>
+          <div class="leading-tight">
+            <div class="text-base font-extrabold tracking-wide">Frame<span class="text-brand-accent">&</span>Code</div>
+            <div class="text-[11px] text-white/70">إطار وكود</div>
+          </div>
+        </a>
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/10" aria-label="فتح القائمة">
+          <span>☰</span>
+        </button>
+        <ul id="navLinks" class="hidden md:flex items-center gap-6 text-sm">
+          <li><a href="#services" class="hover:text-brand-accent transition">الخدمات</a></li>
+          <li><a href="#work" class="hover:text-brand-accent transition">أعمالنا</a></li>
+          <li><a href="#process" class="hover:text-brand-accent transition">آلية العمل</a></li>
+          <li><a href="#pricing" class="hover:text-brand-accent transition">الباقات</a></li>
+          <li><a href="#contact" class="hover:text-brand-accent transition">تواصل</a></li>
+        </ul>
+        <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90 shadow-soft">ابدأ مشروعك</a>
+      </nav>
+      <!-- mobile -->
+      <div id="mobileNav" class="md:hidden hidden border-t border-white/10 bg-black/60 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-4 py-3 grid gap-3 text-sm">
+          <a href="#services" class="hover:text-brand-accent">الخدمات</a>
+          <a href="#work" class="hover:text-brand-accent">أعمالنا</a>
+          <a href="#process" class="hover:text-brand-accent">آلية العمل</a>
+          <a href="#pricing" class="hover:text-brand-accent">الباقات</a>
+          <a href="#contact" class="hover:text-brand-accent">تواصل</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative bg-hero grain overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 lg:px-6 py-24 lg:py-28 grid md:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <h1 class="text-4xl lg:text-6xl font-extrabold leading-[1.1]">
+            نصنع <span class="text-brand-accent">محتوى بصري</span> مدهش
+            ونبني <span class="text-brand-accent">منتجات برمجية</span> موثوقة
+          </h1>
+          <p class="mt-5 text-white/80 text-lg lg:text-xl max-w-2xl">
+            تصوير فيديو وفوتوغرافيا وموشن جرافيك + تصميم وتطوير مواقع وتطبيقات ويب/موبايل — حل متكامل من اللقطة إلى الكود.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" class="px-5 py-3 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90 shadow-soft">احجز استشارة مجانية</a>
+            <a href="#work" class="px-5 py-3 rounded-xl border border-white/20 hover:border-brand-accent/70 hover:text-brand-accent transition">شاهد أعمالنا</a>
+          </div>
+          <div class="mt-6 flex items-center gap-4 text-white/60 text-sm">
+            <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> تسليم في مواعيد ثابتة</span>
+            <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span> جودة إنتاج وشفافية</span>
+          </div>
+        </div>
+        <div class="relative reveal">
+          <div class="relative aspect-[4/3] rounded-2xl bg-white/5 border border-white/10 p-6 shadow-soft backdrop-blur">
+            <!-- inline wordmark preview (wider so last letter never clips) -->
+            <div class="absolute inset-0 grid place-items-center pointer-events-none">
+              <svg width="880" height="220" viewBox="0 0 1780 440" class="opacity-95">
+                <rect width="1780" height="440" fill="transparent"/>
+                <g transform="translate(20, -34) scale(0.95)">
+                  <svg width="512" height="512" viewBox="0 0 512 512">
+                    <rect x="56" y="56" width="400" height="400" rx="48" ry="48" stroke="#1E3A8A" stroke-width="22" fill="none"/>
+                    <polygon points="190,206 190,306 260,256" fill="#FF6B57"/>
+                    <g stroke="#1E3A8A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                      <polyline points="320,200 275,256 320,312"/>
+                      <polyline points="392,200 437,256 392,312"/>
+                    </g>
+                  </svg>
+                </g>
+                <g font-family="Cairo, Inter, Poppins, system-ui, sans-serif">
+                  <text x="600" y="230" font-size="132" font-weight="800" fill="#0B2545" letter-spacing="0.5">Frame<tspan fill="#FF6B57">&</tspan>Code</text>
+                  <text x="600" y="284" font-size="30" font-weight="600" fill="#1E3A8A" letter-spacing="2.4">Creative Media · Reliable Code</text>
+                </g>
+              </svg>
+            </div>
+            <div class="absolute -top-6 -left-6 w-28 h-28 rounded-3xl bg-brand-accent/20 blur-xl animate-float"></div>
+            <div class="absolute -bottom-8 -right-8 w-36 h-36 rounded-full bg-brand-primary/20 blur-2xl animate-float" style="animation-delay:.8s"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-[#0C1426]">
+      <div class="max-w-7xl mx-auto px-4 lg:px-6">
+        <div class="reveal">
+          <h2 class="text-3xl lg:text-4xl font-extrabold">خدماتنا</h2>
+          <p class="mt-2 text-white/70">محتوى بصري + حلول برمجية — شراكة شاملة.</p>
+        </div>
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
+            <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span class="text-brand-accent text-xl">🎬</span></div>
+            <h3 class="font-bold mb-1">إنتاج الفيديو</h3>
+            <p class="text-sm text-white/70">إعلانات – مقابلات – تغطيات – مونتاج احترافي.</p>
+          </div>
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
+            <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span class="text-brand-accent text-xl">📸</span></div>
+            <h3 class="font-bold mb-1">تصوير فوتوغرافي</h3>
+            <p class="text-sm text-white/70">منتجات – فعاليات – براند – معالجة ألوان.</p>
+          </div>
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
+            <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span class="text-brand-accent text-xl">🎨</span></div>
+            <h3 class="font-bold mb-1">موشن جرافيك</h3>
+            <p class="text-sm text-white/70">ستوري بورد – تحريك – ساوند ديزاين.</p>
+          </div>
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
+            <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span class="text-brand-accent text-xl">💻</span></div>
+            <h3 class="font-bold mb-1">تطوير مواقع/تطبيقات</h3>
+            <p class="text-sm text-white/70">تصميم UI/UX + برمجة Laravel/JS + نشر وأمان.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 lg:px-6">
+        <div class="reveal">
+          <h2 class="text-3xl lg:text-4xl font-extrabold">نماذج من أعمالنا</h2>
+          <p class="mt-2 text-white/70">عينات قابلة للاستبدال بملفاتك (صور/فيديو).</p>
+        </div>
+        <div class="mt-10 grid md:grid-cols-3 gap-6">
+          <div class="group reveal relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+            <div class="absolute inset-0 grid place-items-center text-white/60">Video Placeholder</div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition"></div>
+            <button class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold opacity-0 group-hover:opacity-100 transition">شاهد</button>
+          </div>
+          <div class="group reveal relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+            <div class="absolute inset-0 grid place-items-center text-white/60">Photo Placeholder</div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition"></div>
+            <button class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold opacity-0 group-hover:opacity-100 transition">عرض</button>
+          </div>
+          <div class="group reveal relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+            <div class="absolute inset-0 grid place-items-center text-white/60">Motion Placeholder</div>
+            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition"></div>
+            <button class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold opacity-0 group-hover:opacity-100 transition">تشغيل</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="py-20 bg-[#0C1426]">
+      <div class="max-w-7xl mx-auto px-4 lg:px-6">
+        <div class="reveal">
+          <h2 class="text-3xl lg:text-4xl font-extrabold">آلية العمل</h2>
+          <p class="mt-2 text-white/70">خطوات واضحة من أول مكالمة حتى التسليم.</p>
+        </div>
+        <div class="mt-10 grid md:grid-cols-4 gap-6">
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div class="text-3xl font-extrabold text-brand-accent mb-2">01</div>
+            <h3 class="font-bold mb-1">تحليل الأهداف</h3>
+            <p class="text-sm text-white/70">فهم السوق والجمهور ونبرة المحتوى والخصائص التقنية.</p>
+          </div>
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div class="text-3xl font-extrabold text-brand-accent mb-2">02</div>
+            <h3 class="font-bold mb-1">السيناريو والتصميم</h3>
+            <p class="text-sm text-white/70">ستوري بورد وUI/UX وخرائط تدفّق قبل التنفيذ.</p>
+          </div>
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div class="text-3xl font-extrabold text-brand-accent mb-2">03</div>
+            <h3 class="font-bold mb-1">الإنتاج والبرمجة</h3>
+            <p class="text-sm text-white/70">تصوير ومونتاج + كود نظيف وقابل للتطوير.</p>
+          </div>
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+            <div class="text-3xl font-extrabold text-brand-accent mb-2">04</div>
+            <h3 class="font-bold mb-1">التسليم والدعم</h3>
+            <p class="text-sm text-white/70">نشر، اختبارات، وثائق ودعم ما بعد الإطلاق.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 lg:px-6">
+        <div class="reveal">
+          <h2 class="text-3xl lg:text-4xl font-extrabold">الباقات</h2>
+          <p class="mt-2 text-white/70">باقة بداية، نمو، أو تخصيص كامل حسب احتياجك.</p>
+        </div>
+        <div class="mt-10 grid md:grid-cols-3 gap-6">
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-bold text-xl">Starter</h3>
+            <div class="text-3xl font-extrabold text-brand-accent mt-2">$1,500</div>
+            <ul class="mt-4 space-y-2 text-sm text-white/80">
+              <li>• Landing Page</li>
+              <li>• جلسة تصوير واحدة</li>
+              <li>• إطلاق خلال 10–14 يوم</li>
+            </ul>
+            <a href="#contact" class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
+          </div>
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 ring-2 ring-brand-accent/60">
+            <h3 class="font-bold text-xl">Growth</h3>
+            <div class="text-3xl font-extrabold text-brand-accent mt-2">$3,200</div>
+            <ul class="mt-4 space-y-2 text-sm text-white/80">
+              <li>• موقع كامل + تعدد صفحات</li>
+              <li>• جلسات تصوير متعددة</li>
+              <li>• تكاملات أساسية وتحليلات</li>
+            </ul>
+            <a href="#contact" class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
+          </div>
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-bold text-xl">Custom</h3>
+            <div class="text-3xl font-extrabold text-brand-accent mt-2">حسب الطلب</div>
+            <ul class="mt-4 space-y-2 text-sm text-white/80">
+              <li>• مواصفات خاصة</li>
+              <li>• حجز شهري/سنوي</li>
+              <li>• دعم وتطوير مستمر</li>
+            </ul>
+            <a href="#contact" class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-[#0C1426]">
+      <div class="max-w-7xl mx-auto px-4 lg:px-6">
+        <div class="reveal">
+          <h2 class="text-3xl lg:text-4xl font-extrabold">قالوا عنّا</h2>
+          <p class="mt-2 text-white/70">آراء مختصرة من عملاء حقيقيين.</p>
+        </div>
+        <div class="mt-10 grid md:grid-cols-2 gap-6">
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+            <p class="text-lg">“تسليم سريع وصورة نقية. الكود كان نظيف جدًا.”</p>
+            <div class="mt-3 text-sm text-white/70">— عميلنا، شركة ناشئة تقنية</div>
+          </div>
+          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+            <p class="text-lg">“فريق فاهم التسويق والبرمجة معًا — التجربة كانت سلسة.”</p>
+            <div class="mt-3 text-sm text-white/70">— مدير تسويق، علامة تجارية</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 lg:px-6 grid lg:grid-cols-2 gap-10 items-start">
+        <div class="reveal">
+          <h2 class="text-3xl lg:text-4xl font-extrabold">ابدأ مشروعك الآن</h2>
+          <p class="mt-2 text-white/70">اترك بياناتك وسنتواصل خلال 24 ساعة.</p>
+          <div class="mt-6 space-y-3 text-sm text-white/70">
+            <div class="flex items-center gap-3"><span class="text-brand-accent">✔</span> خطة زمنية واضحة ومراحل معتمدة</div>
+            <div class="flex items-center gap-3"><span class="text-brand-accent">✔</span> عقود وفواتير رسمية</div>
+            <div class="flex items-center gap-3"><span class="text-brand-accent">✔</span> تحديثات دورية وتقارير مختصرة</div>
+          </div>
+        </div>
+        <form class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 space-y-4 max-w-2xl w-full" onsubmit="event.preventDefault(); sendForm(this)">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm mb-1">الاسم الكامل</label>
+              <input required class="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow" placeholder="محمد نوح"/>
+            </div>
+            <div>
+              <label class="block text-sm mb-1">رقم الهاتف</label>
+              <input required class="w-full px-4 py-3 rounded-2xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow" placeholder="+966 5xxxxxxx"/>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm mb-1">البريد الإلكتروني</label>
+            <input type="email" class="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow" placeholder="you@company.com"/>
+          </div>
+          <div>
+            <label class="block text-sm mb-1">وصف الفكرة</label>
+            <textarea rows="4" class="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow" placeholder="نبذة عن المشروع، الجمهور المستهدف، الميزانية التقريبية..."></textarea>
+          </div>
+          <div class="flex items-center gap-3">
+            <button class="px-5 py-3 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90">إرسال الطلب</button>
+            <span id="formStatus" class="text-sm text-white/70"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="py-10 border-t border-white/10 text-white/60 text-sm">
+      <div class="max-w-7xl mx-auto px-4 lg:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>© <span id="year"></span> Frame&Code — إطار وكود. جميع الحقوق محفوظة.</div>
+        <div class="flex items-center gap-5">
+          <a class="hover:text-white" href="#">سياسة الخصوصية</a>
+          <a class="hover:text-white" href="#">الشروط والأحكام</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // reveal on scroll
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }})
+      }, { threshold: .14 });
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+      // mobile nav toggle
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const navLinks = document.getElementById('navLinks');
+      menuBtn?.addEventListener('click', ()=>{ mobileNav.classList.toggle('hidden'); });
+
+      // simple form demo
+      function sendForm(form){
+        const status = document.getElementById('formStatus');
+        status.textContent = 'تم الاستلام! سنتواصل معك قريبًا.';
+        form.reset();
+      }
+
+      // year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
