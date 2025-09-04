@@ -26,3 +26,12 @@
 .reveal.show {
   animation: reveal .8s ease forwards;
 }
+
+footer a svg {
+  opacity: .8;
+  transition: opacity .2s ease;
+}
+
+footer a:hover svg {
+  opacity: 1;
+}
