@@ -16,9 +16,15 @@ document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 const menuBtn = document.getElementById("menuBtn");
 const mobileNav = document.getElementById("mobileNav");
 const navLinks = document.getElementById("navLinks");
-menuBtn?.addEventListener("click", () => {
-  mobileNav.classList.toggle("hidden");
-});
+if (menuBtn) {
+  console.log("Menu button is present");
+  menuBtn.addEventListener("click", () => {
+    console.log("Menu button clicked");
+    mobileNav.classList.toggle("hidden");
+  });
+} else {
+  console.log("Menu button is missing");
+}
 
 // simple form demo
 function sendForm(form) {
