@@ -10,7 +10,7 @@ module.exports = {
         brand: {
           primary: "#1E3A8A",
           accent: "#FF6B57",
-          navy: "#0B2545",
+          navy: "#0B1220",
           light: "#F7F8FA",
         },
       },
