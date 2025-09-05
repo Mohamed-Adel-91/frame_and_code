@@ -1,384 +1,489 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Frame&Code — فريم وكود</title>
-    <meta name="description" content="Frame&Code — إنتاج فيديو وفوتوغرافيا وموشن جرافيك + تصميم وتطوير مواقع وتطبيقات ويب/موبايل."/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: { cairo: ["Cairo", "system-ui", "sans-serif"] },
-            colors: {
-              brand: { primary: "#1E3A8A", accent: "#FF6B57", navy: "#0B2545", light: "#F7F8FA" }
-            },
-            boxShadow: {
-              soft: "0 10px 30px rgba(0,0,0,0.12)", glow: "0 0 0 6px rgba(30,58,138,0.12)"
-            },
-            keyframes: {
-              float: {"0%,100%": {transform: "translateY(0)"}, "50%": {transform: "translateY(-12px)"}},
-              reveal: {"0%": {opacity:0, transform:"translateY(24px)"}, "100%": {opacity:1, transform:"translateY(0)"}}
-            },
-            animation: { float: "float 6s ease-in-out infinite", reveal: "reveal .8s ease forwards" }
-          }
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frame&Code — فريم وكود</title>
+  <meta name="description"
+    content="Frame&Code — إنتاج فيديو وفوتوغرافيا وموشن جرافيك + تصميم وتطوير مواقع وتطبيقات ويب/موبايل." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { cairo: ["Cairo", "system-ui", "sans-serif"] },
+          colors: {
+            brand: { primary: "#1E3A8A", accent: "#FF6B57", navy: "#0B2545", light: "#F7F8FA" }
+          },
+          boxShadow: {
+            soft: "0 10px 30px rgba(0,0,0,0.12)", glow: "0 0 0 6px rgba(30,58,138,0.12)"
+          },
+          keyframes: {
+            float: { "0%,100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-12px)" } },
+            reveal: { "0%": { opacity: 0, transform: "translateY(24px)" }, "100%": { opacity: 1, transform: "translateY(0)" } }
+          },
+          animation: { float: "float 6s ease-in-out infinite", reveal: "reveal .8s ease forwards" }
         }
       }
-    </script>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body class="bg-[#0B1220] text-white selection:bg-brand-accent/40 selection:text-white font-cairo">
-    <!-- Navbar -->
-    <header class="sticky top-0 z-50 backdrop-blur border-b border-white/10 bg-black/30">
-      <nav class="max-w-7xl mx-auto px-4 lg:px-6 flex items-center justify-between h-16">
-        <a href="#" class="flex items-center gap-3">
-          <!-- Logo mark -->
-          <svg width="36" height="36" viewBox="0 0 512 512" class="shrink-0">
-            <rect x="56" y="56" width="400" height="400" rx="48" ry="48" stroke="#1E3A8A" stroke-width="22" fill="none"/>
-            <polygon points="190,206 190,306 260,256" fill="#FF6B57"/>
-            <g stroke="#1E3A8A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
-              <polyline points="320,200 275,256 320,312"/>
-              <polyline points="392,200 437,256 392,312"/>
-            </g>
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-[#0B1220] text-white selection:bg-brand-accent/40 selection:text-white font-cairo">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-white/10 bg-black/30">
+    <nav class="max-w-7xl mx-auto px-4 lg:px-6 flex items-center justify-between h-16">
+      <a href="#" class="flex items-center gap-3">
+        <!-- Logo mark -->
+        <svg width="36" height="36" viewBox="0 0 512 512" class="shrink-0">
+          <rect x="56" y="56" width="400" height="400" rx="48" ry="48" stroke="#1E3A8A" stroke-width="22" fill="none" />
+          <polygon points="190,206 190,306 260,256" fill="#FF6B57" />
+          <g stroke="#1E3A8A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <polyline points="320,200 275,256 320,312" />
+            <polyline points="392,200 437,256 392,312" />
+          </g>
+        </svg>
+        <div class="leading-tight">
+          <div class="text-base font-extrabold tracking-wide">Frame<span class="text-brand-accent">&</span>Code</div>
+          <div class="text-[11px] text-white/70">فريم وكود</div>
+        </div>
+      </a>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/10" aria-label="فتح القائمة">
+        <span>☰</span>
+      </button>
+      <ul id="navLinks" class="hidden md:flex items-center gap-6 text-sm">
+        <li><a href="#services" class="hover:text-brand-accent transition">الخدمات</a></li>
+        <li><a href="#work" class="hover:text-brand-accent transition">أعمالنا</a></li>
+        <li><a href="#process" class="hover:text-brand-accent transition">آلية العمل</a></li>
+        <li><a href="#pricing" class="hover:text-brand-accent transition">الباقات</a></li>
+        <li><a href="#contact" class="hover:text-brand-accent transition">تواصل</a></li>
+      </ul>
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://wa.me/1234567890" aria-label="واتساب" class="hover:text-brand-accent transition"
+          target="_blank" rel="noopener noreferrer">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M17.472 14.382c-.297-.149-1.757-.867-2.02-.967-.273-.1-.47-.148-.67.15-.197.295-.768.97-.944 1.17-.174.2-.352.219-.649.074-.297-.149-1.255-.463-2.386-1.475-.88-.788-1.476-1.761-1.65-2.057-.173-.295-.018-.455.13-.604.132-.132.297-.347.446-.52.148-.173.197-.296.297-.495.1-.2.05-.37-.025-.52-.074-.149-.669-1.61-.916-2.207-.242-.579-.488-.5-.668-.509-.173-.009-.37-.01-.568-.01-.198 0-.52.075-.793.37-.273.296-1.04 1.016-1.04 2.48 0 1.462 1.066 2.875 1.216 3.074.149.2 2.1 3.205 5.077 4.492.709.306 1.26.489 1.69.625.712.227 1.36.195 1.87.118.571-.085 1.757-.719 2.007-1.416.249-.697.249-1.295.174-1.416-.074-.122-.273-.197-.571-.346z">
+            </path>
+            <path
+              d="M20.52 3.464A11.824 11.824 0 0012.084 0C5.444 0 .008 5.438.008 12.084c0 2.13.558 4.19 1.621 6L0 24l6-1.574a11.9 11.9 0 006.084 1.574c6.64 0 12.076-5.438 12.076-12.084a11.872 11.872 0 00-3.548-8.452zm-8.436 17.155a9.861 9.861 0 01-5.014-1.366l-.36-.214-3.566.932.95-3.481-.235-.372a9.839 9.839 0 01-1.519-5.195c0-5.441 4.428-9.87 9.868-9.87 2.635 0 5.111 1.026 6.96 2.887a9.829 9.829 0 012.904 6.98c0 5.441-4.428 9.87-9.868 9.87z">
+            </path>
           </svg>
-          <div class="leading-tight">
-            <div class="text-base font-extrabold tracking-wide">Frame<span class="text-brand-accent">&</span>Code</div>
-            <div class="text-[11px] text-white/70">فريم وكود</div>
-          </div>
         </a>
-        <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-white/10" aria-label="فتح القائمة">
-          <span>☰</span>
-        </button>
-        <ul id="navLinks" class="hidden md:flex items-center gap-6 text-sm">
-          <li><a href="#services" class="hover:text-brand-accent transition">الخدمات</a></li>
-          <li><a href="#work" class="hover:text-brand-accent transition">أعمالنا</a></li>
-          <li><a href="#process" class="hover:text-brand-accent transition">آلية العمل</a></li>
-          <li><a href="#pricing" class="hover:text-brand-accent transition">الباقات</a></li>
-          <li><a href="#contact" class="hover:text-brand-accent transition">تواصل</a></li>
-        </ul>
-        <div class="hidden md:flex items-center gap-4">
-          <a href="https://wa.me/1234567890" aria-label="واتساب" class="hover:text-brand-accent transition" target="_blank" rel="noopener noreferrer">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.757-.867-2.02-.967-.273-.1-.47-.148-.67.15-.197.295-.768.97-.944 1.17-.174.2-.352.219-.649.074-.297-.149-1.255-.463-2.386-1.475-.88-.788-1.476-1.761-1.65-2.057-.173-.295-.018-.455.13-.604.132-.132.297-.347.446-.52.148-.173.197-.296.297-.495.1-.2.05-.37-.025-.52-.074-.149-.669-1.61-.916-2.207-.242-.579-.488-.5-.668-.509-.173-.009-.37-.01-.568-.01-.198 0-.52.075-.793.37-.273.296-1.04 1.016-1.04 2.48 0 1.462 1.066 2.875 1.216 3.074.149.2 2.1 3.205 5.077 4.492.709.306 1.26.489 1.69.625.712.227 1.36.195 1.87.118.571-.085 1.757-.719 2.007-1.416.249-.697.249-1.295.174-1.416-.074-.122-.273-.197-.571-.346z"></path>
-              <path d="M20.52 3.464A11.824 11.824 0 0012.084 0C5.444 0 .008 5.438.008 12.084c0 2.13.558 4.19 1.621 6L0 24l6-1.574a11.9 11.9 0 006.084 1.574c6.64 0 12.076-5.438 12.076-12.084a11.872 11.872 0 00-3.548-8.452zm-8.436 17.155a9.861 9.861 0 01-5.014-1.366l-.36-.214-3.566.932.95-3.481-.235-.372a9.839 9.839 0 01-1.519-5.195c0-5.441 4.428-9.87 9.868-9.87 2.635 0 5.111 1.026 6.96 2.887a9.829 9.829 0 012.904 6.98c0 5.441-4.428 9.87-9.868 9.87z"></path>
+          <a href="https://facebook.com/frameandcode" aria-label="Facebook" class="hover:text-brand-accent transition" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12H16l-.5 3h-2.5v7A10 10 0 0 0 22 12z" />
             </svg>
           </a>
-          <a href="https://twitter.com" aria-label="تويتر" class="hover:text-brand-accent transition" target="_blank" rel="noopener noreferrer">
+      </div>
+      <a href="#contact"
+        class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90 shadow-soft">ابدأ
+        مشروعك</a>
+    </nav>
+    <!-- mobile -->
+    <div id="mobileNav" class="md:hidden hidden border-t border-white/10 bg-black/60 backdrop-blur">
+      <div class="max-w-7xl mx-auto px-4 py-3 grid gap-3 text-sm">
+        <a href="#services" class="hover:text-brand-accent">الخدمات</a>
+        <a href="#work" class="hover:text-brand-accent">أعمالنا</a>
+        <a href="#process" class="hover:text-brand-accent">آلية العمل</a>
+        <a href="#pricing" class="hover:text-brand-accent">الباقات</a>
+        <a href="#contact" class="hover:text-brand-accent">تواصل</a>
+        <div class="flex items-center gap-4 pt-2">
+          <a href="https://wa.me/1234567890" aria-label="واتساب" class="hover:text-brand-accent" target="_blank"
+            rel="noopener noreferrer">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775a4.958 4.958 0 002.163-2.723 9.93 9.93 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482A13.978 13.978 0 011.671 3.149a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.224-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.084 4.936 4.936 0 004.604 3.417A9.867 9.867 0 010 19.54a13.94 13.94 0 007.548 2.209c9.058 0 14.01-7.514 14.01-14.01 0-.213-.005-.425-.014-.636a10.025 10.025 0 002.411-2.548z"></path>
+              <path
+                d="M17.472 14.382c-.297-.149-1.757-.867-2.02-.967-.273-.1-.47-.148-.67.15-.197.295-.768.97-.944 1.17-.174.2-.352.219-.649.074-.297-.149-1.255-.463-2.386-1.475-.88-.788-1.476-1.761-1.65-2.057-.173-.295-.018-.455.13-.604.132-.132.297-.347.446-.52.148-.173.197-.296.297-.495.1-.2.05-.37-.025-.52-.074-.149-.669-1.61-.916-2.207-.242-.579-.488-.5-.668-.509-.173-.009-.37-.01-.568-.01-.198 0-.52.075-.793.37-.273.296-1.04 1.016-1.04 2.48 0 1.462 1.066 2.875 1.216 3.074.149.2 2.1 3.205 5.077 4.492.709.306 1.26.489 1.69.625.712.227 1.36.195 1.87.118.571-.085 1.757-.719 2.007-1.416.249-.697.249-1.295.174-1.416-.074-.122-.273-.197-.571-.346z">
+              </path>
+              <path
+                d="M20.52 3.464A11.824 11.824 0 0012.084 0C5.444 0 .008 5.438.008 12.084c0 2.13.558 4.19 1.621 6L0 24l6-1.574a11.9 11.9 0 006.084 1.574c6.64 0 12.076-5.438 12.076-12.084a11.872 11.872 0 00-3.548-8.452zm-8.436 17.155a9.861 9.861 0 01-5.014-1.366l-.36-.214-3.566.932.95-3.481-.235-.372a9.839 9.839 0 01-1.519-5.195c0-5.441 4.428-9.87 9.868-9.87 2.635 0 5.111 1.026 6.96 2.887a9.829 9.829 0 012.904 6.98c0 5.441-4.428 9.87-9.868 9.87z">
+              </path>
+            </svg>
+          </a>
+          <a href="https://twitter.com" aria-label="تويتر" class="hover:text-brand-accent" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M23.954 4.569c-.885.392-1.83.656-2.825.775a4.958 4.958 0 002.163-2.723 9.93 9.93 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482A13.978 13.978 0 011.671 3.149a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.224-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.084 4.936 4.936 0 004.604 3.417A9.867 9.867 0 010 19.54a13.94 13.94 0 007.548 2.209c9.058 0 14.01-7.514 14.01-14.01 0-.213-.005-.425-.014-.636a10.025 10.025 0 002.411-2.548z">
+              </path>
             </svg>
           </a>
         </div>
-        <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90 shadow-soft">ابدأ مشروعك</a>
-      </nav>
-      <!-- mobile -->
-      <div id="mobileNav" class="md:hidden hidden border-t border-white/10 bg-black/60 backdrop-blur">
-        <div class="max-w-7xl mx-auto px-4 py-3 grid gap-3 text-sm">
-          <a href="#services" class="hover:text-brand-accent">الخدمات</a>
-          <a href="#work" class="hover:text-brand-accent">أعمالنا</a>
-          <a href="#process" class="hover:text-brand-accent">آلية العمل</a>
-          <a href="#pricing" class="hover:text-brand-accent">الباقات</a>
-          <a href="#contact" class="hover:text-brand-accent">تواصل</a>
-          <div class="flex items-center gap-4 pt-2">
-            <a href="https://wa.me/1234567890" aria-label="واتساب" class="hover:text-brand-accent" target="_blank" rel="noopener noreferrer">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.757-.867-2.02-.967-.273-.1-.47-.148-.67.15-.197.295-.768.97-.944 1.17-.174.2-.352.219-.649.074-.297-.149-1.255-.463-2.386-1.475-.88-.788-1.476-1.761-1.65-2.057-.173-.295-.018-.455.13-.604.132-.132.297-.347.446-.52.148-.173.197-.296.297-.495.1-.2.05-.37-.025-.52-.074-.149-.669-1.61-.916-2.207-.242-.579-.488-.5-.668-.509-.173-.009-.37-.01-.568-.01-.198 0-.52.075-.793.37-.273.296-1.04 1.016-1.04 2.48 0 1.462 1.066 2.875 1.216 3.074.149.2 2.1 3.205 5.077 4.492.709.306 1.26.489 1.69.625.712.227 1.36.195 1.87.118.571-.085 1.757-.719 2.007-1.416.249-.697.249-1.295.174-1.416-.074-.122-.273-.197-.571-.346z"></path>
-                <path d="M20.52 3.464A11.824 11.824 0 0012.084 0C5.444 0 .008 5.438.008 12.084c0 2.13.558 4.19 1.621 6L0 24l6-1.574a11.9 11.9 0 006.084 1.574c6.64 0 12.076-5.438 12.076-12.084a11.872 11.872 0 00-3.548-8.452zm-8.436 17.155a9.861 9.861 0 01-5.014-1.366l-.36-.214-3.566.932.95-3.481-.235-.372a9.839 9.839 0 01-1.519-5.195c0-5.441 4.428-9.87 9.868-9.87 2.635 0 5.111 1.026 6.96 2.887a9.829 9.829 0 012.904 6.98c0 5.441-4.428 9.87-9.868 9.87z"></path>
-              </svg>
-            </a>
-            <a href="https://twitter.com" aria-label="تويتر" class="hover:text-brand-accent" target="_blank" rel="noopener noreferrer">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775a4.958 4.958 0 002.163-2.723 9.93 9.93 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482A13.978 13.978 0 011.671 3.149a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.224-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.084 4.936 4.936 0 004.604 3.417A9.867 9.867 0 010 19.54a13.94 13.94 0 007.548 2.209c9.058 0 14.01-7.514 14.01-14.01 0-.213-.005-.425-.014-.636a10.025 10.025 0 002.411-2.548z"></path>
-              </svg>
-            </a>
+      </div>
+    </div>
+  </header>
+  <!-- Hero -->
+  <section class="relative bg-hero grain overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6 py-24 lg:py-28 grid md:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <h1 class="text-4xl lg:text-6xl font-extrabold leading-[1.1]">
+          نصنع <span class="text-brand-accent">محتوى بصري</span> مدهش
+          ونبني <span class="text-brand-accent">منتجات برمجية</span> موثوقة
+        </h1>
+        <p class="mt-5 text-white/80 text-lg lg:text-xl max-w-2xl">
+          تصوير فيديو وفوتوغرافيا وموشن جرافيك + تصميم وتطوير مواقع وتطبيقات ويب/موبايل — حل متكامل من اللقطة إلى الكود.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#contact"
+            class="px-5 py-3 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90 shadow-soft">احجز
+            استشارة مجانية</a>
+          <a href="#work"
+            class="px-5 py-3 rounded-xl border border-white/20 hover:border-brand-accent/70 hover:text-brand-accent transition">شاهد
+            أعمالنا</a>
+        </div>
+        <div class="mt-6 flex items-center gap-4 text-white/60 text-sm">
+          <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> تسليم
+            في مواعيد ثابتة</span>
+          <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span> جودة
+            إنتاج وشفافية</span>
+        </div>
+      </div>
+      <div class="relative reveal">
+        <div class="relative aspect-[4/3] rounded-2xl bg-white/5 border border-white/10 p-6 shadow-soft backdrop-blur">
+          <div class="absolute inset-0 grid place-items-center pointer-events-none">
+            <svg width="530" height="470" viewBox="-120 10 830 670" class="opacity-95">
+              <rect width="830" height="670" fill="transparent" />
+              <g transform="translate(20, -34) scale(0.95)">
+                <svg width="512" height="512" viewBox="0 0 512 512">
+                  <rect x="56" y="56" width="400" height="400" rx="48" ry="48" stroke="#1E3A8A" stroke-width="22"
+                    fill="none" />
+                  <polygon points="190,206 190,306 260,256" fill="#FF6B57" />
+                  <g stroke="#1E3A8A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                    <polyline points="320,200 275,256 320,312" />
+                    <polyline points="392,200 437,256 392,312" />
+                  </g>
+                </svg>
+              </g>
+              <g font-family="Cairo, Inter, Poppins, system-ui, sans-serif">
+                <text x="650" y="530" font-size="132" font-weight="800" fill="#0B2545" letter-spacing="0.5">Frame<tspan
+                    fill="#FF6B57">&</tspan>Code</text>
+                <text x="500" y="600" font-size="30" font-weight="600" fill="#1E3A8A" letter-spacing="2.4">Creative
+                  Media · Reliable Code</text>
+              </g>
+            </svg>
+          </div>
+          <div class="absolute -top-6 -left-6 w-28 h-28 rounded-3xl bg-brand-accent/20 blur-xl animate-float"></div>
+          <div class="absolute -bottom-8 -right-8 w-36 h-36 rounded-full bg-brand-primary/20 blur-2xl animate-float"
+            style="animation-delay:.8s"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Services -->
+  <section id="services" class="py-20 bg-[#0C1426]">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+      <div class="reveal">
+        <h2 class="text-3xl lg:text-4xl font-extrabold">خدماتنا</h2>
+        <p class="mt-2 text-white/70">محتوى بصري + حلول برمجية — شراكة شاملة.</p>
+      </div>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
+          <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span
+              class="text-brand-accent text-xl">🎬</span></div>
+          <h3 class="font-bold mb-1">إنتاج الفيديو</h3>
+          <p class="text-sm text-white/70">إعلانات – مقابلات – تغطيات – مونتاج احترافي.</p>
+        </div>
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
+          <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span
+              class="text-brand-accent text-xl">📸</span></div>
+          <h3 class="font-bold mb-1">تصوير فوتوغرافي</h3>
+          <p class="text-sm text-white/70">منتجات – فعاليات – براند – معالجة ألوان.</p>
+        </div>
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
+          <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span
+              class="text-brand-accent text-xl">🎨</span></div>
+          <h3 class="font-bold mb-1">موشن جرافيك</h3>
+          <p class="text-sm text-white/70">ستوري بورد – تحريك – ساوند ديزاين.</p>
+        </div>
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
+          <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span
+              class="text-brand-accent text-xl">💻</span></div>
+          <h3 class="font-bold mb-1">تطوير مواقع/تطبيقات</h3>
+          <p class="text-sm text-white/70">تصميم UI/UX + برمجة Laravel/JS + نشر وأمان.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Work -->
+  <section id="work" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+      <div class="reveal">
+        <h2 class="text-3xl lg:text-4xl font-extrabold">نماذج من أعمالنا</h2>
+        <p class="mt-2 text-white/70">عينات قابلة للاستبدال بملفاتك (صور/فيديو).</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="group reveal relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+          <div class="absolute inset-0 grid place-items-center text-white/60">Video Placeholder</div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition"></div>
+          <button
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold opacity-0 group-hover:opacity-100 transition">شاهد</button>
+        </div>
+        <div class="group reveal relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+          <div class="absolute inset-0 grid place-items-center text-white/60">Photo Placeholder</div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition"></div>
+          <button
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold opacity-0 group-hover:opacity-100 transition">عرض</button>
+        </div>
+        <div class="group reveal relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10">
+          <div class="absolute inset-0 grid place-items-center text-white/60">Motion Placeholder</div>
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition"></div>
+          <button
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold opacity-0 group-hover:opacity-100 transition">تشغيل</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Process -->
+  <section id="process" class="py-20 bg-[#0C1426]">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+      <div class="reveal">
+        <h2 class="text-3xl lg:text-4xl font-extrabold">آلية العمل</h2>
+        <p class="mt-2 text-white/70">خطوات واضحة من أول مكالمة حتى التسليم.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-4 gap-6">
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+          <div class="text-3xl font-extrabold text-brand-accent mb-2">01</div>
+          <h3 class="font-bold mb-1">تحليل الأهداف</h3>
+          <p class="text-sm text-white/70">فهم السوق والجمهور ونبرة المحتوى والخصائص التقنية.</p>
+        </div>
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+          <div class="text-3xl font-extrabold text-brand-accent mb-2">02</div>
+          <h3 class="font-bold mb-1">السيناريو والتصميم</h3>
+          <p class="text-sm text-white/70">ستوري بورد وUI/UX وخرائط تدفّق قبل التنفيذ.</p>
+        </div>
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+          <div class="text-3xl font-extrabold text-brand-accent mb-2">03</div>
+          <h3 class="font-bold mb-1">الإنتاج والبرمجة</h3>
+          <p class="text-sm text-white/70">تصوير ومونتاج + كود نظيف وقابل للتطوير.</p>
+        </div>
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+          <div class="text-3xl font-extrabold text-brand-accent mb-2">04</div>
+          <h3 class="font-bold mb-1">التسليم والدعم</h3>
+          <p class="text-sm text-white/70">نشر، اختبارات، وثائق ودعم ما بعد الإطلاق.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Pricing -->
+  <section id="pricing" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+      <div class="reveal">
+        <h2 class="text-3xl lg:text-4xl font-extrabold">الباقات</h2>
+        <p class="mt-2 text-white/70">باقة بداية، نمو، أو تخصيص كامل حسب احتياجك.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-4 gap-6">
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+          <h3 class="font-bold text-xl">Starter</h3>
+          <div class="text-3xl font-extrabold text-brand-accent mt-2">$1,500</div>
+          <ul class="mt-4 space-y-2 text-sm text-white/80">
+            <li>• Landing Page</li>
+            <li>• جلسة تصوير واحدة</li>
+            <li>• إطلاق خلال 10–14 يوم</li>
+          </ul>
+          <a href="#contact"
+            class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
+        </div>
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 ring-2 ring-brand-accent/60">
+          <h3 class="font-bold text-xl">Growth</h3>
+          <div class="text-3xl font-extrabold text-brand-accent mt-2">$3,200</div>
+          <ul class="mt-4 space-y-2 text-sm text-white/80">
+            <li>• موقع كامل + تعدد صفحات</li>
+            <li>• جلسات تصوير متعددة</li>
+            <li>• تكاملات أساسية وتحليلات</li>
+          </ul>
+          <a href="#contact"
+            class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
+        </div>
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+          <h3 class="font-bold text-xl">Custom</h3>
+          <div class="text-3xl font-extrabold text-brand-accent mt-2">حسب الطلب</div>
+          <ul class="mt-4 space-y-2 text-sm text-white/80">
+            <li>• مواصفات خاصة</li>
+            <li>• حجز شهري/سنوي</li>
+            <li>• دعم وتطوير مستمر</li>
+          </ul>
+          <a href="#contact"
+            class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
+        </div>
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+          <h3 class="font-bold text-xl">Consultant</h3>
+          <div class="text-3xl font-extrabold text-brand-accent mt-2">حسب الطلب</div>
+          <ul class="mt-4 space-y-2 text-sm text-white/80">
+            <li>• جلسات استشارية مخصصة (برمجة / مونتاج وتصوير)</li>
+            <li>• تحليل وحلول عملية لمشكلتك</li>
+            <li>• متابعة وتوجيه خطوة بخطوة</li>
+            <li>• إمكانية الحجز (شهري / سنوي)</li>
+            <li>• دعم وتطوير مستمر</li>
+          </ul>
+          <a href="#contact"
+            class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-20 bg-[#0C1426]">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6">
+      <div class="reveal">
+        <h2 class="text-3xl lg:text-4xl font-extrabold">قالوا عنّا</h2>
+        <p class="mt-2 text-white/70">آراء مختصرة من عملاء حقيقيين.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+          <p class="text-lg">“تسليم سريع وصورة نقية. الكود كان نظيف جدًا.”</p>
+          <div class="mt-3 text-sm text-white/70">— عميلنا، شركة ناشئة تقنية</div>
+        </div>
+        <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
+          <p class="text-lg">“فريق فاهم التسويق والبرمجة معًا — التجربة كانت سلسة.”</p>
+          <div class="mt-3 text-sm text-white/70">— مدير تسويق، علامة تجارية</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+  <section id="contact" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6 grid lg:grid-cols-2 gap-10 items-start">
+      <div class="reveal">
+        <h2 class="text-3xl lg:text-4xl font-extrabold">ابدأ مشروعك الآن</h2>
+        <p class="mt-2 text-white/70">اترك بياناتك وسنتواصل خلال 24 ساعة.</p>
+        <div class="mt-6 space-y-3 text-sm text-white/70">
+          <div class="flex items-center gap-3"><span class="text-brand-accent">✔</span> خطة زمنية واضحة ومراحل معتمدة
+          </div>
+          <div class="flex items-center gap-3"><span class="text-brand-accent">✔</span> عقود وفواتير رسمية</div>
+          <div class="flex items-center gap-3"><span class="text-brand-accent">✔</span> تحديثات دورية وتقارير مختصرة
           </div>
         </div>
       </div>
-    </header>
-
-    <!-- Hero -->
-    <section class="relative bg-hero grain overflow-hidden">
-      <div class="max-w-7xl mx-auto px-4 lg:px-6 py-24 lg:py-28 grid md:grid-cols-2 gap-12 items-center">
-        <div class="reveal">
-          <h1 class="text-4xl lg:text-6xl font-extrabold leading-[1.1]">
-            نصنع <span class="text-brand-accent">محتوى بصري</span> مدهش
-            ونبني <span class="text-brand-accent">منتجات برمجية</span> موثوقة
-          </h1>
-          <p class="mt-5 text-white/80 text-lg lg:text-xl max-w-2xl">
-            تصوير فيديو وفوتوغرافيا وموشن جرافيك + تصميم وتطوير مواقع وتطبيقات ويب/موبايل — حل متكامل من اللقطة إلى الكود.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" class="px-5 py-3 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90 shadow-soft">احجز استشارة مجانية</a>
-            <a href="#work" class="px-5 py-3 rounded-xl border border-white/20 hover:border-brand-accent/70 hover:text-brand-accent transition">شاهد أعمالنا</a>
-          </div>
-          <div class="mt-6 flex items-center gap-4 text-white/60 text-sm">
-            <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> تسليم في مواعيد ثابتة</span>
-            <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400"></span> جودة إنتاج وشفافية</span>
-          </div>
-        </div>
-        <div class="relative reveal">
-          <div class="relative aspect-[4/3] rounded-2xl bg-white/5 border border-white/10 p-6 shadow-soft backdrop-blur">
-            <!-- inline wordmark preview (wider so last letter never clips) -->
-            <div class="absolute inset-0 grid place-items-center pointer-events-none">
-              <!-- <svg width="880" height="220" viewBox="0 0 1780 440" class="opacity-95">
-                <rect width="1780" height="440" fill="transparent"/>
-                <g transform="translate(20, -34) scale(0.95)">
-                  <svg width="512" height="512" viewBox="0 0 512 512">
-                    <rect x="56" y="56" width="400" height="400" rx="48" ry="48" stroke="#1E3A8A" stroke-width="22" fill="none"/>
-                    <polygon points="190,206 190,306 260,256" fill="#FF6B57"/>
-                    <g stroke="#1E3A8A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                      <polyline points="320,200 275,256 320,312"/>
-                      <polyline points="392,200 437,256 392,312"/>
-                    </g>
-                  </svg>
-                </g>
-                <g font-family="Cairo, Inter, Poppins, system-ui, sans-serif">
-                  <text x="600" y="230" font-size="132" font-weight="800" fill="#0B2545" letter-spacing="0.5">Frame<tspan fill="#FF6B57">&</tspan>Code</text>
-                  <text x="600" y="284" font-size="30" font-weight="600" fill="#1E3A8A" letter-spacing="2.4">Creative Media · Reliable Code</text>
-                </g>
-              </svg> -->
-            </div>
-            <div class="absolute -top-6 -left-6 w-28 h-28 rounded-3xl bg-brand-accent/20 blur-xl animate-float"></div>
-            <div class="absolute -bottom-8 -right-8 w-36 h-36 rounded-full bg-brand-primary/20 blur-2xl animate-float" style="animation-delay:.8s"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="py-20 bg-[#0C1426]">
-      <div class="max-w-7xl mx-auto px-4 lg:px-6">
-        <div class="reveal">
-          <h2 class="text-3xl lg:text-4xl font-extrabold">خدماتنا</h2>
-          <p class="mt-2 text-white/70">محتوى بصري + حلول برمجية — شراكة شاملة.</p>
-        </div>
-        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
-            <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span class="text-brand-accent text-xl">🎬</span></div>
-            <h3 class="font-bold mb-1">إنتاج الفيديو</h3>
-            <p class="text-sm text-white/70">إعلانات – مقابلات – تغطيات – مونتاج احترافي.</p>
-          </div>
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
-            <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span class="text-brand-accent text-xl">📸</span></div>
-            <h3 class="font-bold mb-1">تصوير فوتوغرافي</h3>
-            <p class="text-sm text-white/70">منتجات – فعاليات – براند – معالجة ألوان.</p>
-          </div>
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
-            <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span class="text-brand-accent text-xl">🎨</span></div>
-            <h3 class="font-bold mb-1">موشن جرافيك</h3>
-            <p class="text-sm text-white/70">ستوري بورد – تحريك – ساوند ديزاين.</p>
-          </div>
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-accent/50 transition">
-            <div class="w-12 h-12 grid place-items-center rounded-xl bg-brand-accent/20 mb-4"><span class="text-brand-accent text-xl">💻</span></div>
-            <h3 class="font-bold mb-1">تطوير مواقع/تطبيقات</h3>
-            <p class="text-sm text-white/70">تصميم UI/UX + برمجة Laravel/JS + نشر وأمان.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Work -->
-    <section id="work" class="py-20">
-      <div class="max-w-7xl mx-auto px-4 lg:px-6">
-        <div class="reveal">
-          <h2 class="text-3xl lg:text-4xl font-extrabold">نماذج من أعمالنا</h2>
-          <p class="mt-2 text-white/70">عينات قابلة للاستبدال بملفاتك (صور/فيديو).</p>
-        </div>
-        <div class="mt-10 grid md:grid-cols-3 gap-6">
-          <div class="group reveal relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10">
-            <div class="absolute inset-0 grid place-items-center text-white/60">Video Placeholder</div>
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition"></div>
-            <button class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold opacity-0 group-hover:opacity-100 transition">شاهد</button>
-          </div>
-          <div class="group reveal relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10">
-            <div class="absolute inset-0 grid place-items-center text-white/60">Photo Placeholder</div>
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition"></div>
-            <button class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold opacity-0 group-hover:opacity-100 transition">عرض</button>
-          </div>
-          <div class="group reveal relative aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10">
-            <div class="absolute inset-0 grid place-items-center text-white/60">Motion Placeholder</div>
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition"></div>
-            <button class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold opacity-0 group-hover:opacity-100 transition">تشغيل</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Process -->
-    <section id="process" class="py-20 bg-[#0C1426]">
-      <div class="max-w-7xl mx-auto px-4 lg:px-6">
-        <div class="reveal">
-          <h2 class="text-3xl lg:text-4xl font-extrabold">آلية العمل</h2>
-          <p class="mt-2 text-white/70">خطوات واضحة من أول مكالمة حتى التسليم.</p>
-        </div>
-        <div class="mt-10 grid md:grid-cols-4 gap-6">
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-3xl font-extrabold text-brand-accent mb-2">01</div>
-            <h3 class="font-bold mb-1">تحليل الأهداف</h3>
-            <p class="text-sm text-white/70">فهم السوق والجمهور ونبرة المحتوى والخصائص التقنية.</p>
-          </div>
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-3xl font-extrabold text-brand-accent mb-2">02</div>
-            <h3 class="font-bold mb-1">السيناريو والتصميم</h3>
-            <p class="text-sm text-white/70">ستوري بورد وUI/UX وخرائط تدفّق قبل التنفيذ.</p>
-          </div>
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-3xl font-extrabold text-brand-accent mb-2">03</div>
-            <h3 class="font-bold mb-1">الإنتاج والبرمجة</h3>
-            <p class="text-sm text-white/70">تصوير ومونتاج + كود نظيف وقابل للتطوير.</p>
-          </div>
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-3xl font-extrabold text-brand-accent mb-2">04</div>
-            <h3 class="font-bold mb-1">التسليم والدعم</h3>
-            <p class="text-sm text-white/70">نشر، اختبارات، وثائق ودعم ما بعد الإطلاق.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section id="pricing" class="py-20">
-      <div class="max-w-7xl mx-auto px-4 lg:px-6">
-        <div class="reveal">
-          <h2 class="text-3xl lg:text-4xl font-extrabold">الباقات</h2>
-          <p class="mt-2 text-white/70">باقة بداية، نمو، أو تخصيص كامل حسب احتياجك.</p>
-        </div>
-        <div class="mt-10 grid md:grid-cols-3 gap-6">
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
-            <h3 class="font-bold text-xl">Starter</h3>
-            <div class="text-3xl font-extrabold text-brand-accent mt-2">$1,500</div>
-            <ul class="mt-4 space-y-2 text-sm text-white/80">
-              <li>• Landing Page</li>
-              <li>• جلسة تصوير واحدة</li>
-              <li>• إطلاق خلال 10–14 يوم</li>
-            </ul>
-            <a href="#contact" class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
-          </div>
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 ring-2 ring-brand-accent/60">
-            <h3 class="font-bold text-xl">Growth</h3>
-            <div class="text-3xl font-extrabold text-brand-accent mt-2">$3,200</div>
-            <ul class="mt-4 space-y-2 text-sm text-white/80">
-              <li>• موقع كامل + تعدد صفحات</li>
-              <li>• جلسات تصوير متعددة</li>
-              <li>• تكاملات أساسية وتحليلات</li>
-            </ul>
-            <a href="#contact" class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
-          </div>
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
-            <h3 class="font-bold text-xl">Custom</h3>
-            <div class="text-3xl font-extrabold text-brand-accent mt-2">حسب الطلب</div>
-            <ul class="mt-4 space-y-2 text-sm text-white/80">
-              <li>• مواصفات خاصة</li>
-              <li>• حجز شهري/سنوي</li>
-              <li>• دعم وتطوير مستمر</li>
-            </ul>
-            <a href="#contact" class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section id="testimonials" class="py-20 bg-[#0C1426]">
-      <div class="max-w-7xl mx-auto px-4 lg:px-6">
-        <div class="reveal">
-          <h2 class="text-3xl lg:text-4xl font-extrabold">قالوا عنّا</h2>
-          <p class="mt-2 text-white/70">آراء مختصرة من عملاء حقيقيين.</p>
-        </div>
-        <div class="mt-10 grid md:grid-cols-2 gap-6">
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
-            <p class="text-lg">“تسليم سريع وصورة نقية. الكود كان نظيف جدًا.”</p>
-            <div class="mt-3 text-sm text-white/70">— عميلنا، شركة ناشئة تقنية</div>
-          </div>
-          <div class="reveal p-6 rounded-2xl bg-white/5 border border-white/10">
-            <p class="text-lg">“فريق فاهم التسويق والبرمجة معًا — التجربة كانت سلسة.”</p>
-            <div class="mt-3 text-sm text-white/70">— مدير تسويق، علامة تجارية</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-20">
-      <div class="max-w-7xl mx-auto px-4 lg:px-6 grid lg:grid-cols-2 gap-10 items-start">
-        <div class="reveal">
-          <h2 class="text-3xl lg:text-4xl font-extrabold">ابدأ مشروعك الآن</h2>
-          <p class="mt-2 text-white/70">اترك بياناتك وسنتواصل خلال 24 ساعة.</p>
-          <div class="mt-6 space-y-3 text-sm text-white/70">
-            <div class="flex items-center gap-3"><span class="text-brand-accent">✔</span> خطة زمنية واضحة ومراحل معتمدة</div>
-            <div class="flex items-center gap-3"><span class="text-brand-accent">✔</span> عقود وفواتير رسمية</div>
-            <div class="flex items-center gap-3"><span class="text-brand-accent">✔</span> تحديثات دورية وتقارير مختصرة</div>
-          </div>
-        </div>
-        <form class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 space-y-4 max-w-2xl w-full" onsubmit="event.preventDefault(); sendForm(this)">
-          <div class="grid md:grid-cols-2 gap-4">
-            <div>
-              <label class="block text-sm mb-1">الاسم الكامل</label>
-              <input required class="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow" placeholder="محمد نوح"/>
-            </div>
-            <div>
-              <label class="block text-sm mb-1">رقم الهاتف</label>
-              <input required class="w-full px-4 py-3 rounded-2xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow" placeholder="+966 5xxxxxxx"/>
-            </div>
+      <form class="reveal p-6 rounded-2xl bg-white/5 border border-white/10 space-y-4 max-w-2xl w-full"
+        onsubmit="event.preventDefault(); sendForm(this)">
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-1">الاسم الكامل</label>
+            <input required
+              class="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow"
+              placeholder="محمد نوح" />
           </div>
           <div>
-            <label class="block text-sm mb-1">البريد الإلكتروني</label>
-            <input type="email" class="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow" placeholder="you@company.com"/>
+            <label class="block text-sm mb-1">رقم الهاتف</label>
+            <input required
+              class="w-full px-4 py-3 rounded-2xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow"
+              placeholder="+966 5xxxxxxx" />
           </div>
-          <div>
-            <label class="block text-sm mb-1">وصف الفكرة</label>
-            <textarea rows="4" class="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow" placeholder="نبذة عن المشروع، الجمهور المستهدف، الميزانية التقريبية..."></textarea>
-          </div>
-          <div class="flex items-center gap-3">
-            <button class="px-5 py-3 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90">إرسال الطلب</button>
-            <span id="formStatus" class="text-sm text-white/70"></span>
-          </div>
-        </form>
+        </div>
+        <div>
+          <label class="block text-sm mb-1">البريد الإلكتروني</label>
+          <input type="email"
+            class="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow"
+            placeholder="you@company.com" />
+        </div>
+        <div>
+          <label class="block text-sm mb-1">وصف الفكرة</label>
+          <textarea rows="4"
+            class="w-full px-4 py-3 rounded-xl bg-black/20 border border-white/10 focus:outline-none focus:border-brand-accent focus:shadow-glow"
+            placeholder="نبذة عن المشروع، الجمهور المستهدف، الميزانية التقريبية..."></textarea>
+        </div>
+        <div class="flex items-center gap-3">
+          <button class="px-5 py-3 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90">إرسال
+            الطلب</button>
+          <span id="formStatus" class="text-sm text-white/70"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+  <footer class="py-10 border-t border-white/10 text-white/60 text-sm">
+    <div class="max-w-7xl mx-auto px-4 lg:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="grid gap-4 text-white/80">
+        <div class=" md:justify-start gap-4">
+          <div class="md:justify-start text-start md:text-right">الرياض، المملكة العربية السعودية</div>
+          <a href="mailto:info@frameandcode.com" class="flex items-center gap-1 hover:text-white  pt-2"
+            aria-label="البريد الإلكتروني">
+            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M1.5 4.5h21c.83 0 1.5.67 1.5 1.5v12c0 .83-.67 1.5-1.5 1.5h-21C.67 19.5 0 18.83 0 18V6c0-.83.67-1.5 1.5-1.5zm0 3v9h21v-9l-10.5 6L1.5 7.5z" />
+            </svg>
+            <span>info@frameandcode.com</span>
+          </a>
+          <a href="tel:+966501234567" class="flex items-center gap-1 hover:text-white pt-2" aria-label="الهاتف">
+            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M2.26 0h4.9c.3 0 .55.21.61.5l1.1 5.15c.05.23-.05.46-.26.6L6.3 8.88a17.44 17.44 0 0 0 8.83 8.83l2.63-2.32c.17-.15.4-.2.62-.14l5.15 1.1c.29.06.5.32.5.61v4.9c0 .34-.27.62-.6.62C10.8 24 0 13.2 0 .61.01.27.29 0 .63 0h1.63z" />
+            </svg>
+            <span dir="ltr">+966501234567</span>
+          </a>
+        </div>
+        <div class="flex items-center justify-center md:justify-start gap-4">
+          <a href="https://wa.me/966501234567" class="flex items-center gap-1 hover:text-white" aria-label="واتساب"
+            target="_blank" rel="noopener noreferrer">
+            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.52 3.48A11.78 11.78 0 0 0 12 0 11.78 11.78 0 0 0 3.48 3.48 11.78 11.78 0 0 0 0 12c0 2.1.54 4.13 1.56 5.94L0 24l6.24-1.56A11.78 11.78 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.24-6.21-3.48-8.52zM12 22a10 10 0 0 1-5.09-1.39l-.36-.21-3.7.93.99-3.61-.23-.37A9.96 9.96 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.21-7.79c-.29-.15-1.71-.85-1.97-.95-.26-.1-.45-.15-.64.15-.19.29-.74.95-.91 1.15-.17.2-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.44.13-.59.14-.14.29-.34.43-.51.15-.17.2-.29.3-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.55-.88-2.11-.23-.55-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.51.07-.77.36s-1.01.98-1.01 2.39c0 1.4 1.03 2.75 1.18 2.94.15.19 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.62.69.22 1.32.19 1.82.11.55-.08 1.71-.7 1.95-1.37.24-.67.24-1.24.17-1.37-.07-.13-.26-.21-.55-.36z" />
+            </svg>
+          </a>
+          <a href="https://instagram.com/frameandcode" aria-label="Instagram" class="hover:text-white">
+            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+            </svg>
+          </a>
+          <a href="https://x.com/frameandcode" aria-label="X" class="hover:text-white">
+            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22.23 0h-4.26L12 8.29 6.03 0H0l8.92 11.6L.35 24h4.26L12 14.12 18.25 24h5.75l-9.45-12.29L22.23 0z" />
+            </svg>
+          </a>
+          <a href="https://youtube.com/@frameandcode" aria-label="YouTube" class="hover:text-white">
+            <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M23.5 6.5s-.2-1.68-.82-2.42c-.78-.87-1.66-.88-2.06-.93C17.74 3 12 3 12 3h-.01s-5.74 0-8.61.15c-.4.05-1.28.06-2.06.93C1.2 4.82 1 6.5 1 6.5S.8 8.32.8 10.15v1.7c0 1.83.2 3.65.2 3.65s.2 1.68.82 2.42c.78.87 1.8.84 2.26.93 1.64.16 7.2.15 7.2.15s5.74 0 8.61-.15c.4-.05 1.28-.06 2.06-.93.62-.74.82-2.42.82-2.42s.2-1.82.2-3.65v-1.7c0-1.83-.2-3.65-.2-3.65zM9.75 14.5v-5l5.25 2.5-5.25 2.5z" />
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@frameandcode" aria-label="TikTok" class="hover:text-white" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12.75 2v14.07c0 1.44-1.17 2.61-2.61 2.61A2.62 2.62 0 0 1 7.5 16.06c0-1.44 1.17-2.61 2.61-2.61.28 0 .55.04.8.12v-2.6a5.21 5.21 0 0 0-.8-.06 5.25 5.25 0 1 0 5.25 5.25V7.6c.96.69 2.12 1.1 3.37 1.1V6.7c-1.53 0-2.77-1.24-2.77-2.77V2h-3.21z" />
+            </svg>
+          </a>
+          <a href="https://behance.net/frameandcode" aria-label="Behance" class="hover:text-white" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22 7h-6v1.5h6V7zm-9.09 4.91c.57-.26.96-.83.96-1.41 0-1.08-.88-1.95-1.96-1.95H6v9h6.1c1.14 0 2.06-.93 2.06-2.07 0-.68-.35-1.28-.91-1.57zm-3.91-2.41h2.5c.33 0 .6.27.6.6s-.27.6-.6.6H9v-1.2zm2.7 4.8H9v-1.6h2.7c.44 0 .8.36.8.8s-.36.8-.8.8zM19 10.5c-1.79 0-3.25 1.46-3.25 3.25S17.21 17 19 17c1.52 0 2.79-1.04 3.15-2.44h-1.62c-.25.53-.78.89-1.53.89-.9 0-1.62-.68-1.62-1.62s.72-1.62 1.62-1.62c.65 0 1.23.36 1.48.88h1.62C21.77 11.55 20.52 10.5 19 10.5z" />
+            </svg>
+          </a>
+          <a href="https://facebook.com/frameandcode" aria-label="Facebook" class="hover:text-white" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12H16l-.5 3h-2.5v7A10 10 0 0 0 22 12z" />
+            </svg>
+          </a>
+          <a href="https://github.com/frameandcode" aria-label="GitHub" class="hover:text-white" target="_blank"
+            rel="noopener noreferrer">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 0a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.2c-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.34-1.75-1.34-1.75-1.1-.75.08-.74.08-.74 1.22.09 1.86 1.26 1.86 1.26 1.08 1.86 2.84 1.32 3.53 1 .11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.95 0-1.32.47-2.39 1.24-3.24-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.85 1.24 1.92 1.24 3.24 0 4.62-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.69.82.58A12 12 0 0 0 12 0z" />
+            </svg>
+          </a>
+        </div>
       </div>
-    </section>
-
-    <footer class="py-10 border-t border-white/10 text-white/60 text-sm">
-      <div class="max-w-7xl mx-auto px-4 lg:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="items-center md:block gap-4">
         <div>© <span id="year"></span> Frame&Code — فريم وكود. جميع الحقوق محفوظة.</div>
-        <div class="grid gap-4 text-white/80">
-          <div class="flex flex-wrap items-center justify-center md:justify-end gap-4">
-            <a href="https://wa.me/966501234567" class="flex items-center gap-1 hover:text-white" aria-label="واتساب">
-              <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0 11.78 11.78 0 0 0 3.48 3.48 11.78 11.78 0 0 0 0 12c0 2.1.54 4.13 1.56 5.94L0 24l6.24-1.56A11.78 11.78 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.24-6.21-3.48-8.52zM12 22a10 10 0 0 1-5.09-1.39l-.36-.21-3.7.93.99-3.61-.23-.37A9.96 9.96 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.21-7.79c-.29-.15-1.71-.85-1.97-.95-.26-.1-.45-.15-.64.15-.19.29-.74.95-.91 1.15-.17.2-.34.22-.63.07-.29-.15-1.22-.45-2.32-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.44.13-.59.14-.14.29-.34.43-.51.15-.17.2-.29.3-.48.1-.19.05-.36-.02-.51-.07-.15-.64-1.55-.88-2.11-.23-.55-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.51.07-.77.36s-1.01.98-1.01 2.39c0 1.4 1.03 2.75 1.18 2.94.15.19 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.62.69.22 1.32.19 1.82.11.55-.08 1.71-.7 1.95-1.37.24-.67.24-1.24.17-1.37-.07-.13-.26-.21-.55-.36z"/></svg>
-              <span>واتساب</span>
-            </a>
-            <a href="tel:+966501234567" class="flex items-center gap-1 hover:text-white" aria-label="الهاتف">
-              <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M2.26 0h4.9c.3 0 .55.21.61.5l1.1 5.15c.05.23-.05.46-.26.6L6.3 8.88a17.44 17.44 0 0 0 8.83 8.83l2.63-2.32c.17-.15.4-.2.62-.14l5.15 1.1c.29.06.5.32.5.61v4.9c0 .34-.27.62-.6.62C10.8 24 0 13.2 0 .61.01.27.29 0 .63 0h1.63z"/></svg>
-              <span>+966 50 123 4567</span>
-            </a>
-            <a href="mailto:info@frameandcode.com" class="flex items-center gap-1 hover:text-white" aria-label="البريد الإلكتروني">
-              <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M1.5 4.5h21c.83 0 1.5.67 1.5 1.5v12c0 .83-.67 1.5-1.5 1.5h-21C.67 19.5 0 18.83 0 18V6c0-.83.67-1.5 1.5-1.5zm0 3v9h21v-9l-10.5 6L1.5 7.5z"/></svg>
-              <span>info@frameandcode.com</span>
-            </a>
-          </div>
-          <div class="flex items-center justify-center md:justify-end gap-4">
-            <a href="https://instagram.com/frameandcode" aria-label="Instagram" class="hover:text-white">
-              <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
-            </a>
-            <a href="https://x.com/frameandcode" aria-label="X" class="hover:text-white">
-              <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M22.23 0h-4.26L12 8.29 6.03 0H0l8.92 11.6L.35 24h4.26L12 14.12 18.25 24h5.75l-9.45-12.29L22.23 0z"/></svg>
-            </a>
-            <a href="https://youtube.com/@frameandcode" aria-label="YouTube" class="hover:text-white">
-              <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24"><path d="M23.5 6.5s-.2-1.68-.82-2.42c-.78-.87-1.66-.88-2.06-.93C17.74 3 12 3 12 3h-.01s-5.74 0-8.61.15c-.4.05-1.28.06-2.06.93C1.2 4.82 1 6.5 1 6.5S.8 8.32.8 10.15v1.7c0 1.83.2 3.65.2 3.65s.2 1.68.82 2.42c.78.87 1.8.84 2.26.93 1.64.16 7.2.15 7.2.15s5.74 0 8.61-.15c.4-.05 1.28-.06 2.06-.93.62-.74.82-2.42.82-2.42s.2-1.82.2-3.65v-1.7c0-1.83-.2-3.65-.2-3.65zM9.75 14.5v-5l5.25 2.5-5.25 2.5z"/></svg>
-            </a>
-          </div>
-          <div class="text-center md:text-right">الرياض، المملكة العربية السعودية</div>
-          <div class="flex items-center justify-center md:justify-end gap-4 text-white/60">
-            <a class="hover:text-white" href="#">سياسة الخصوصية</a>
-            <a class="hover:text-white" href="#">الشروط والأحكام</a>
-          </div>
+        <div class="flex items-center justify-center md:justify-end gap-4 text-white/60  pt-2">
+          <a class="hover:text-white" href="#">سياسة الخصوصية</a>
+          <a class="hover:text-white" href="#">الشروط والأحكام</a>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
 
-    <script src="script.js"></script>
-  </body>
 </html>
