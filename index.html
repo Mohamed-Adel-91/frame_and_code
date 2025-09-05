@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dist/output.css">
 </head>
-
 <body
   class="bg-white text-brand-navy dark:bg-[#0B1220] dark:text-white selection:bg-brand-accent/40 selection:text-brand-navy dark:selection:text-white font-cairo">
   <!-- Navbar -->
@@ -47,18 +45,31 @@
           <div class="text-[11px] text-brand-navy/70 dark:text-white/70">فريم وكود</div>
         </div>
       </a>
-      <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-black/10 dark:hover:bg-white/10"
-        aria-label="فتح القائمة">
-        <span>☰</span>
-      </button>
-
+      <div class="md:hidden flex items-center gap-2 ml-auto">
+        <!-- Theme toggle (mobile) -->
+        <button id="themeToggleMobile" type="button" aria-label="تبديل النمط"
+          class="p-2 rounded-lg hover:bg-black/10 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-accent dark:focus:ring-brand-accent transition">
+          <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M10 15a5 5 0 100-10 5 5 0 000 10z"></path>
+            <path fill-rule="evenodd"
+              d="M10 1a1 1 0 011 1v1a1 1 0 11-2 0V2a1 1 0 011-1zm4.22 2.03a1 1 0 011.42 0l.7.7a1 1 0 11-1.42 1.42l-.7-.7a1 1 0 010-1.42zM17 9a1 1 0 110 2h-1a1 1 0 110-2h1zm-2.03 5.22a1 1 0 010 1.42l-.7.7a1 1 0 11-1.42-1.42l.7-.7a1 1 0 011.42 0zM11 17a1 1 0 11-2 0v-1a1 1 0 112 0v1zm-5.22-2.03a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 111.42-1.42l.7.7zM3 11a1 1 0 110-2h1a1 1 0 110 2H3zm2.03-5.22a1 1 0 10-1.42-1.42l-.7.7a1 1 0 001.42 1.42l.7-.7z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707 8 8 0 1017.293 13.293z"></path>
+          </svg>
+        </button>
+        <!-- Menu button -->
+        <button id="menuBtn" class="p-2 rounded-lg hover:bg-black/10 dark:hover:bg-white/10" aria-label="فتح القائمة">
+          <span>☰</span>
+        </button>
+      </div>
       <ul id="navLinks" class="hidden md:flex items-center gap-6 text-sm">
         <li><a href="#services" class="hover:text-brand-accent transition">الخدمات</a></li>
         <li><a href="#work" class="hover:text-brand-accent transition">أعمالنا</a></li>
         <li><a href="#process" class="hover:text-brand-accent transition">آلية العمل</a></li>
         <li><a href="#pricing" class="hover:text-brand-accent transition">الباقات</a></li>
         <li><a href="#contact" class="hover:text-brand-accent transition">تواصل</a></li>
-
       </ul>
       <div class="hidden md:flex items-center gap-4">
         <button id="themeToggle" type="button" aria-label="تبديل النمط"
@@ -126,18 +137,6 @@
               </svg>
             </a>
           </div>
-          <button id="themeToggleMobile" type="button" aria-label="تبديل النمط"
-            class="p-2 rounded-lg hover:bg-black/10 dark:hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-accent dark:focus:ring-brand-accent transition">
-            <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M10 15a5 5 0 100-10 5 5 0 000 10z"></path>
-              <path fill-rule="evenodd"
-                d="M10 1a1 1 0 011 1v1a1 1 0 11-2 0V2a1 1 0 011-1zm4.22 2.03a1 1 0 011.42 0l.7.7a1 1 0 11-1.42 1.42l-.7-.7a1 1 0 010-1.42zM17 9a1 1 0 110 2h-1a1 1 0 110-2h1zm-2.03 5.22a1 1 0 010 1.42l-.7.7a1 1 0 11-1.42-1.42l.7-.7a1 1 0 011.42 0zM11 17a1 1 0 11-2 0v-1a1 1 0 112 0v1zm-5.22-2.03a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 111.42-1.42l.7.7zM3 11a1 1 0 110-2h1a1 1 0 110 2H3zm2.03-5.22a1 1 0 10-1.42-1.42l-.7.7a1 1 0 001.42 1.42l.7-.7z"
-                clip-rule="evenodd"></path>
-            </svg>
-            <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M17.293 13.293A8 8 0 016.707 2.707 8 8 0 1017.293 13.293z"></path>
-            </svg>
-          </button>
         </div>
       </div>
     </div>
@@ -359,7 +358,6 @@
         </div>
         <div
           class="relative reveal p-6 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 ring-2 ring-brand-accent/60">
-
           <div>
             <h3 class="font-bold text-xl flex justify-between">Growth
               <span class="best px-3 py-1 text-xs font-bold rounded-md bg-brand-accent text-black shadow top-3 left-4">
@@ -376,7 +374,6 @@
               class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -544,5 +541,4 @@
   </footer>
   <script src="js/script.js"></script>
 </body>
-
 </html>

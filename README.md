@@ -1,5 +1,7 @@
 
-FRAME&CODE — LOGO VARIANT 2 (Royal Blue + Coral)
+![Frame & Code Logo](assets/FrameAndCode_Logo_Variant2/logo_horizontal_v2_dark.svg)
+
+FRAME&CODE — LOGO (Royal Blue + Coral)
 ================================================
 
 Concept
