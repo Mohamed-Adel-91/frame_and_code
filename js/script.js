@@ -28,18 +28,25 @@ if (menuBtn) {
 
 // theme toggle
 const themeToggle = document.getElementById("themeToggle");
+const themeToggleMobile = document.getElementById("themeToggleMobile");
 const savedTheme = localStorage.getItem("theme");
 if (savedTheme === "dark") {
   document.documentElement.classList.add("dark");
 }
+
+function toggleTheme() {
+  document.documentElement.classList.toggle("dark");
+  const theme = document.documentElement.classList.contains("dark")
+    ? "dark"
+    : "light";
+  localStorage.setItem("theme", theme);
+}
+
 if (themeToggle) {
-  themeToggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-    const theme = document.documentElement.classList.contains("dark")
-      ? "dark"
-      : "light";
-    localStorage.setItem("theme", theme);
-  });
+  themeToggle.addEventListener("click", toggleTheme);
+}
+if (themeToggleMobile) {
+  themeToggleMobile.addEventListener("click", toggleTheme);
 }
 
 // simple form demo
