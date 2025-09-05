@@ -34,5 +34,8 @@ module.exports = {
       },
     },
   },
+  corePlugins: {
+    scrollBehavior: true,
+  },
   plugins: [],
 };
