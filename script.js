@@ -26,6 +26,22 @@ if (menuBtn) {
   console.log("Menu button is missing");
 }
 
+// theme toggle
+const themeToggle = document.getElementById("themeToggle");
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  document.documentElement.classList.add("dark");
+}
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    const theme = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
+    localStorage.setItem("theme", theme);
+  });
+}
+
 // simple form demo
 function sendForm(form) {
   const status = document.getElementById("formStatus");
