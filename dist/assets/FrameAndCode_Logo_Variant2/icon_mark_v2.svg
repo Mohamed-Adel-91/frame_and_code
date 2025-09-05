@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="transparent"/>
+  <!-- Rounded frame -->
+  <rect x="56" y="56" width="400" height="400" rx="48" ry="48"
+        stroke="#1E3A8A" stroke-width="22" fill="none"/>
+  <!-- Play triangle (media) -->
+  <polygon points="190,206 190,306 260,256"
+           fill="#FF6B57"/>
+  <!-- Code chevrons (dev) -->
+  <g stroke="#1E3A8A" stroke-width="11.0" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- < -->
+    <polyline points="320,200 275,256 320,312"/>
+    <!-- > -->
+    <polyline points="392,200 437,256 392,312"/>
+  </g>
+</svg>
