@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 :root {
+  --bg: radial-gradient(1200px 600px at 80% -20%, rgba(30, 58, 138, .08), transparent),
+    radial-gradient(1000px 500px at 0% 0%, rgba(255, 107, 87, .08), transparent),
+    linear-gradient(180deg, #FFFFFF 0%, #F7F8FA 100%);
+}
+
+.dark {
   --bg: radial-gradient(1200px 600px at 80% -20%, rgba(30, 58, 138, .14), transparent),
     radial-gradient(1000px 500px at 0% 0%, rgba(255, 107, 87, .10), transparent),
     linear-gradient(180deg, #0B1220 0%, #0B2545 100%);
