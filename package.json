@@ -1,7 +1,7 @@
 {
   "name": "frame_and_code",
   "version": "1.0.0",
-  "description": "FRAME&CODE — LOGO VARIANT 2 (Royal Blue + Coral) ================================================",
+  "description": "FRAME&CODE",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,8 +12,8 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "tailwindcss": "^3.4.1",
-    "postcss": "^8.4.31",
-    "autoprefixer": "^10.4.16"
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
   }
 }
