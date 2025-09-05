@@ -10,28 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { cairo: ["Cairo", "system-ui", "sans-serif"] },
-          colors: {
-            brand: { primary: "#1E3A8A", accent: "#FF6B57", navy: "#0B1220", light: "#F7F8FA" }
-          },
-          boxShadow: {
-            soft: "0 10px 30px rgba(0,0,0,0.12)", glow: "0 0 0 6px rgba(30,58,138,0.12)"
-          },
-          keyframes: {
-            float: { "0%,100%": { transform: "translateY(0)" }, "50%": { transform: "translateY(-12px)" } },
-            reveal: { "0%": { opacity: 0, transform: "translateY(24px)" }, "100%": { opacity: 1, transform: "translateY(0)" } }
-          },
-          animation: { float: "float 6s ease-in-out infinite", reveal: "reveal .8s ease forwards" }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dist/output.css">
 </head>
 
 <body
@@ -204,8 +183,8 @@
             </svg>
           </div>
           <div class="absolute -top-6 -left-6 w-28 h-28 rounded-3xl bg-brand-accent/20 blur-xl animate-float"></div>
-          <div class="absolute -bottom-8 -right-8 w-36 h-36 rounded-full bg-brand-primary/20 blur-2xl animate-float"
-            style="animation-delay:.8s"></div>
+          <div class="absolute -bottom-8 -right-8 w-36 h-36 rounded-full bg-brand-primary/20 blur-2xl animate-float delay-100">
+          </div>
         </div>
       </div>
     </div>
@@ -335,18 +314,6 @@
           <a href="#contact"
             class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
         </div>
-        <div
-          class="reveal p-6 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 ring-2 ring-brand-accent/60">
-          <h3 class="font-bold text-xl">Growth</h3>
-          <div class="text-3xl font-extrabold text-brand-accent mt-2">$3,200</div>
-          <ul class="mt-4 space-y-2 text-sm text-brand-navy/80 dark:text-white/80">
-            <li>• موقع كامل + تعدد صفحات</li>
-            <li>• جلسات تصوير متعددة</li>
-            <li>• تكاملات أساسية وتحليلات</li>
-          </ul>
-          <a href="#contact"
-            class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
-        </div>
         <div class="reveal p-6 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
           <h3 class="font-bold text-xl">Custom</h3>
           <div class="text-3xl font-extrabold text-brand-accent mt-2">حسب الطلب</div>
@@ -371,6 +338,26 @@
           <a href="#contact"
             class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
         </div>
+        <div
+          class="relative reveal p-6 rounded-2xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 ring-2 ring-brand-accent/60">
+
+          <div>
+            <h3 class="font-bold text-xl flex justify-between">Growth
+              <span class="best px-3 py-1 text-xs font-bold rounded-md bg-brand-accent text-black shadow top-3 left-4">
+                Best
+              </span>
+            </h3>
+            <div class="text-3xl font-extrabold text-brand-accent mt-2">$3,200</div>
+            <ul class="mt-4 space-y-2 text-sm text-brand-navy/80 dark:text-white/80">
+              <li>• موقع كامل + تعدد صفحات</li>
+              <li>• جلسات تصوير متعددة</li>
+              <li>• تكاملات أساسية وتحليلات</li>
+            </ul>
+            <a href="#contact"
+              class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand-accent text-black font-semibold">اختيار</a>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -437,13 +424,13 @@
             placeholder="نبذة عن المشروع، الجمهور المستهدف، الميزانية التقريبية..."></textarea>
         </div>
         <div class="flex items-center gap-3">
-          <button class="px-5 py-3 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90">إرسال
-            الطلب</button>
+          <button type="submit" class="px-5 py-3 rounded-xl bg-brand-accent text-black font-semibold hover:opacity-90">إرسال الطلب</button>
           <span id="formStatus" class="text-sm text-brand-navy/70 dark:text-white/70"></span>
         </div>
-      </form>
+      </form> 
     </div>
   </section>
+  <!-- Footer -->
   <footer class="py-10 border-t border-black/10 dark:border-white/10 text-brand-navy/60 dark:text-white/60 text-sm">
     <div class="max-w-7xl mx-auto px-4 lg:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="grid gap-4 text-brand-navy/80 dark:text-white/80">
@@ -535,7 +522,7 @@
       </div>
     </div>
   </footer>
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>

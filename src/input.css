@@ -28,13 +28,49 @@
   pointer-events: none;
 }
 
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
 .reveal {
-  /* opacity: 0; */
+  opacity: 0;
   transform: translateY(24px);
 }
 
 .reveal.show {
   animation: reveal .8s ease forwards;
+}
+
+.best {
+  background-color: #FF6B57;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.delay-100 {
+  animation-delay: .1s;
 }
 
 footer a svg {
